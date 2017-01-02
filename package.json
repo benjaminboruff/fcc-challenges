@@ -12,7 +12,9 @@
   "dependencies": {
     "babel-cli": "^6.18.0",
     "babel-plugin-transform-flow-strip-types": "^6.18.0",
-    "jest": "^16.0.2"
+    "global": "^4.3.1",
+    "jest": "^16.0.2",
+    "node-inspector": "^0.12.8"
   },
   "devDependencies": {
     "babel-jest": "^16.0.0",
@@ -23,7 +25,9 @@
     "presets": [
       "latest"
     ],
-    "plugins": ["transform-flow-strip-types"]
+    "plugins": [
+      "transform-flow-strip-types"
+    ]
   },
   "jest": {
     "testEnvironment": "node",
