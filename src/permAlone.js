@@ -7,32 +7,34 @@ function permAlone(str) {
     console.log(numSwaps);
     for (let i = 0; i < numSwaps / str.length; i++) {
         console.log("*****SET*****: " + i);
-        for (let j = 0, k = -1; j < str.length; j++, k++) {
-            if (k === -1) {
-                console.log("ONE TIME ONLY: " + str + '(0,0)');
-                let tmp = swap(str, 0, 0);
-                list.push(tmp);
-                str = tmp;
-            } else if (j === str.length - 1) {
-                console.log('***END*** ' + str + '(' + j + ',' + k + ')');
-                let tmp = swap(str, j, 0);
-                console.log(tmp);
-                list.push(tmp);
-                str = tmp;
-            } else {
-                console.log(str + '(' + k + ',' + j + ')');
-                let tmp = swap(str, k, j);
-                console.log(tmp);
-                list.push(tmp);
-                str = tmp;
-            }
-        }
+        list.concat(swapSet(str));
+        // for (let j = 0, k = -1; j < str.length; j++, k++) {
+        //     if (k === -1) {
+        //         console.log("ONE TIME ONLY: " + str + '(0,0)');
+        //         let tmp = swap(str, 0, 0);
+        //         list.push(tmp);
+        //         str = tmp;
+        //     } else if (j === str.length - 1) {
+        //         console.log('***END*** ' + str + '(' + j + ',' + k + ')');
+        //         let tmp = swap(str, j, 0);
+        //         console.log(tmp);
+        //         list.push(tmp);
+        //         str = tmp;
+        //     } else {
+        //         console.log(str + '(' + k + ',' + j + ')');
+        //         let tmp = swap(str, k, j);
+        //         console.log(tmp);
+        //         list.push(tmp);
+        //         str = tmp;
+        //     }
+        // }
     }
     console.log('***************************');
-    console.log("THIS: " + swap('aabb', 0, 1));
-    console.log("THIS: " + swap('aabb', 1, 2));
-    console.log("THIS: " + swap('abab', 2, 3));
-    console.log("THIS: " + swap('abba', 3, 0));
+    console.log("THIS: " + swapTwo('aabb', 0, 0));
+    console.log("THIS: " + swapTwo('aabb', 0, 1));
+    console.log("THIS: " + swapTwo('aabb', 1, 2));
+    console.log("THIS: " + swapTwo('abab', 2, 3));
+    //console.log("THIS: " + swapTwo('abba', 3, 0));
 
     let filter = /(.)\1/g;
     for (let i = 0; i < list.length; i++) {
@@ -43,7 +45,13 @@ function permAlone(str) {
     return noRepeats * 2;
 }
 
-function swap(str, index1, index2) {
+function swapSet(str) {
+  let l
+  let arr = [];
+  return arr;
+}
+
+function swapTwo(str, index1, index2) {
     let arr = str.split("");
     // console.log("PRE-SWAP ARRAY: " + arr);
     let x = arr[index1];
@@ -69,4 +77,4 @@ function factorial(num) {
     }
 }
 
-export default permAlone;
+export { permAlone, swapTwo, swapSet };
