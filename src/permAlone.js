@@ -45,14 +45,14 @@ function permAlone(str) {
 
 function swap(str, index1, index2) {
     let arr = str.split("");
-    console.log("PRE-SWAP ARRAY: " + arr);
+    // console.log("PRE-SWAP ARRAY: " + arr);
     let x = arr[index1];
     //console.log(x);
     let y = arr[index2];
     //console.log(y);
     arr[index1] = y;
     arr[index2] = x;
-    console.log("POST-SWAP ARRAY: " + arr);
+    //console.log("POST-SWAP ARRAY: " + arr);
     return arr.join("");
 }
 
