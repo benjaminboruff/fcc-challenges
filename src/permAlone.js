@@ -1,4 +1,6 @@
 /* jshint esversion: 6 */
+var seed = true;
+
 function permAlone(str) {
     let numSwaps = factorial(str.length) / 2;
     let list = [];
@@ -6,49 +8,44 @@ function permAlone(str) {
 
     console.log(numSwaps);
     for (let i = 0; i < numSwaps / str.length; i++) {
+        //let tmpStr = str;
         console.log("*****SET*****: " + i);
-        list.concat(swapSet(str));
-        // for (let j = 0, k = -1; j < str.length; j++, k++) {
-        //     if (k === -1) {
-        //         console.log("ONE TIME ONLY: " + str + '(0,0)');
-        //         let tmp = swap(str, 0, 0);
-        //         list.push(tmp);
-        //         str = tmp;
-        //     } else if (j === str.length - 1) {
-        //         console.log('***END*** ' + str + '(' + j + ',' + k + ')');
-        //         let tmp = swap(str, j, 0);
-        //         console.log(tmp);
-        //         list.push(tmp);
-        //         str = tmp;
-        //     } else {
-        //         console.log(str + '(' + k + ',' + j + ')');
-        //         let tmp = swap(str, k, j);
-        //         console.log(tmp);
-        //         list.push(tmp);
-        //         str = tmp;
-        //     }
-        // }
+        let tmpArr = swapSet(str);
+        console.log(tmpArr[tmpArr.length - 1]);
+        list.push(tmpArr);
+        //swapSet(tmpArr[tmpArr.length - 1]);
+        str = tmpArr[tmpArr.length - 1];
     }
-    console.log('***************************');
-    console.log("THIS: " + swapTwo('aabb', 0, 0));
-    console.log("THIS: " + swapTwo('aabb', 0, 1));
-    console.log("THIS: " + swapTwo('aabb', 1, 2));
-    console.log("THIS: " + swapTwo('abab', 2, 3));
-    //console.log("THIS: " + swapTwo('abba', 3, 0));
 
-    let filter = /(.)\1/g;
-    for (let i = 0; i < list.length; i++) {
-        noRepeats += list[i].match(filter) === null ? 1 : 0;
-    }
     console.log(list);
+    let reduced = list.reduce((a, b) => {
+        return a.concat(b);
+    }, []);
+    let filter = /(.)\1/g;
+    for (let i = 0; i < reduced.length; i++) {
+        noRepeats += reduced[i].match(filter) === null ? 1 : 0;
+    }
+    //console.log(reduced);
     console.log(noRepeats * 2);
     return noRepeats * 2;
 }
 
 function swapSet(str) {
-  let l
-  let arr = [];
-  return arr;
+    let arr = [];
+    if (seed) {
+        arr.push(str);
+        seed = false;
+    }
+    for (let i = 1; i < str.length; i++) {
+        str = swapTwo(str, i - 1, i);
+        arr.push(str);
+    }
+    if (!seed || seed === undefined) {
+        str = swapTwo(str, str.length - 2, str.length - 1);
+        arr.push(str);
+    }
+
+    return arr;
 }
 
 function swapTwo(str, index1, index2) {
@@ -77,4 +74,8 @@ function factorial(num) {
     }
 }
 
-export { permAlone, swapTwo, swapSet };
+export {
+    permAlone,
+    swapTwo,
+    swapSet
+};

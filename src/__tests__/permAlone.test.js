@@ -3,14 +3,9 @@ import {
     swapTwo,
     swapSet
 } from '../permAlone';
-
 describe('***** swapTwo *****', () => {
-    it('swapTwo("aab", 0, 0) should return a string', () => {
-        expect(typeof swapTwo("aab", 0, 0)).toBe('string');
-    });
-
-    it('swapTwo("aab", 0, 0) should return "aab"', () => {
-        expect(swapTwo("aab", 0, 0)).toBe('aab');
+    it('swapTwo("aab", 0, 1) should return a string', () => {
+        expect(typeof swapTwo("aab", 0, 1)).toBe('string');
     });
 
     it('swapTwo("aab", 0, 1) should return "aab"', () => {
@@ -18,11 +13,11 @@ describe('***** swapTwo *****', () => {
     });
 
     it('swapTwo("aab", 1, 2) should return "aba"', () => {
-        expect(swapTwo("aab", 1, 2)).toBe('aba');
+        expect(swapTwo("aab", 0, 1)).toBe('aab');
     });
 
-    it('swapTwo("aabb", 0, 0) should return "aabb"', () => {
-        expect(swapTwo("aabb", 0, 0)).toBe('aabb');
+    it('swapTwo("aab", 0, 2) should return "baa"', () => {
+        expect(swapTwo("aab", 0, 2)).toBe('baa');
     });
 
     it('swapTwo("aabb", 0, 1) should return "aabb"', () => {
@@ -36,6 +31,10 @@ describe('***** swapTwo *****', () => {
     it('swapTwo("abab", 2, 3) should return "abba"', () => {
         expect(swapTwo("abab", 2, 3)).toBe('abba');
     });
+
+    it('swapTwo("bbaa", 2, 3) should return "bbaa"', () => {
+        expect(swapTwo("bbaa", 2, 3)).toBe('bbaa');
+    });
 });
 
 describe('***** swapSet *****', () => {
@@ -43,41 +42,41 @@ describe('***** swapSet *****', () => {
     expect(Array.isArray(swapSet("aab"))).toBe(true);
   });
 
-  it('swapSet(aab) ahould return ["aab", "aab", "aba"]', () => {
-    expect(swapSet("aab")).toEqual(["aab", "aab", "aba"]);
+  it('swapSet(aab) ahould return ["aab", "aba", "aab"]', () => {
+    expect(swapSet("aab")).toEqual(["aab", "aba", "aab"]);
   });
 
-  it('swapSet(aabb) ahould return ["aabb", "aabb", "abab", "abba"]', () => {
-    expect(swapSet("aabb")).toEqual(["aabb", "aabb", "abab", "abba"]);
+  it('swapSet(aabb) ahould return ["aabb", "abab", "abba", "abab"]', () => {
+    expect(swapSet("aabb")).toEqual(["aabb", "abab", "abba", "abab"]);
   });
 
-  it('swapSet(abba) ahould return ["abba", "baba", "bbaa", "bbaa"]', () => {
-    expect(swapSet("abba")).toEqual(["abba", "baba", "bbaa", "bbaa"]);
+  it('swapSet(abba) ahould return ["baba", "bbaa", "bbaa", "bbaa"]', () => {
+    expect(swapSet("abba")).toEqual(["baba", "bbaa", "bbaa", "bbaa"]);
   });
 
-  it('swapSet(abab) ahould return ["abab", "baab", "baab", "baba"]', () => {
-    expect(swapSet("abab")).toEqual(["abab", "baab", "baab", "baba"]);
+  it('swapSet(abab) ahould return ["baab", "baab", "baba", "baba"]', () => {
+    expect(swapSet("abab")).toEqual(["baab", "baab", "baba", "baab"]);
   });
 });
 
 describe('***** permaAlone *****', () => {
-    xit('permAlone("aab") should return a number', () => {
+    it('permAlone("aab") should return a number', () => {
         expect(typeof permAlone("aab")).toBe('number');
     });
 
-    xit('permAlone("aab") should return 2', () => {
+    it('permAlone("aab") should return 2', () => {
         expect(permAlone("aab")).toBe(2);
     });
 
-    xit('permAlone("aaa") should return 0', () => {
+    it('permAlone("aaa") should return 0', () => {
         expect(permAlone("aaa")).toBe(0);
     });
 
-    xit('permAlone("aabb") should return 8', () => {
+    it('permAlone("aabb") should return 8', () => {
         expect(permAlone("aabb")).toBe(8);
     });
 
-    xit('permAlone("abcdefa") should return 3600', () => {
+    it('permAlone("abcdefa") should return 3600', () => {
         expect(permAlone("abcdefa")).toBe(3600);
     });
 
