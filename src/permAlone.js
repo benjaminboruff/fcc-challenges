@@ -15,7 +15,6 @@ function permAlone(str) {
     for (let i = 0; i < permutations.length; i++) {
         noRepeats += permutations[i].match(filter) === null ? 1 : 0;
     }
-    console.log(noRepeats);
     return noRepeats;
 
     // recursive permutation generator
