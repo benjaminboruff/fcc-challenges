@@ -1,41 +1,41 @@
 /* jshint esversion: 6 */
-class Person {
-    constructor(firstAndLast) {
-        this.fullName = firstAndLast;
-        let nameArr = this.fullName.split(" ");
-        this.firstName = nameArr[0];
-        this.lastName = nameArr[1];
-    }
+function Person(firstAndLast) {
 
-    getFirstName() {
-        return this.firstName;
-    }
+    var fullName = firstAndLast;
+    var nameArr = firstAndLast.split(" ");
+    var firstName = nameArr[0];
+    var lastName = nameArr[1];
 
-    getLastName() {
-        return this.lastName;
-    }
 
-    getFullName() {
-        return this.firstName + " " + this.lastName;
-    }
+    this.getFirstName = function() {
+        return firstName;
+    };
 
-    setFirstName(str) {
-        if (typeof str === 'string') this.firstName = str;
-    }
+    this.getLastName = function() {
+        return lastName;
+    };
 
-    setLastName(str) {
-        if (typeof str === 'string') this.lastName = str;
-    }
+    this.getFullName = function() {
 
-    setFullName(str) {
+        return firstName + " " + lastName;
+    };
+
+    this.setFirstName = function(str) {
+        if (typeof str === 'string') firstName = str;
+    };
+
+    this.setLastName = function(str) {
+        if (typeof str === 'string') lastName = str;
+    };
+
+    this.setFullName = function(str) {
         if (typeof str === 'string') {
-            this.fullName = str;
-            let nameArr = this.fullName.split(" ");
-            this.firstName = nameArr[0];
-            this.lastName = nameArr[1];
+            fullName = str;
+            nameArr = fullName.split(" ");
+            firstName = nameArr[0];
+            lastName = nameArr[1];
         }
-    }
-
+    };
 }
 
 export default Person;
