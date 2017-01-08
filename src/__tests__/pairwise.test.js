@@ -20,7 +20,7 @@ it('pairwise([], 100)', () => {
   expect(pairwise([], 100))
   .toBe(0);
 });
-fit('pairwise([7, 9, 11, 13, 15], 20)', () => {
+it('pairwise([7, 9, 11, 13, 15], 20)', () => {
   expect(pairwise([7, 9, 11, 13, 15], 20))
   .toBe(6);
 });
