@@ -1,9 +1,14 @@
 /* jshint esversion: 6 */
 function pairwise(arr, arg) {
-    let testArr = arr.reduce((acc, curr, currIndex, array) => {
-        return array[currIndex] + array[currIndex + 1] === arg ? acc.concat([currIndex, currIndex + 1]) : acc.concat([]);
-    }, []);
-    console.log(testArr);
+  let targetList = [];
+    for(let i = 0; i < arr.length; i++) {
+      for(let j = i + 1; j < arr.length; j++){
+        if(arr[i] + arr[j] === arg) {
+          targetList.push([arr[i], arr[j]]);
+        }
+      }
+    }
+    console.log(targetList);
     return arg;
 }
 
