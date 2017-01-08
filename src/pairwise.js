@@ -19,7 +19,7 @@ function pairwise(arr, arg) {
 }
 
 function sumPairs(pairs) {
-    return pairs.reduce((prev,curr) => prev + curr[0] + curr[1], 0);;
+    return pairs.reduce((prev,curr) => prev + curr[0] + curr[1], 0);
 }
 
 export default pairwise;
